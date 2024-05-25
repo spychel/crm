@@ -1,6 +1,6 @@
 ﻿namespace Domain.Enums;
 
-public enum LessonState
+public enum LessonStateTypeName
 {
     /// <summary>
     /// Занятие назначено

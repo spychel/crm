@@ -1,5 +1,8 @@
 ﻿namespace Domain.Entities;
 
+/// <summary>
+/// Ученик
+/// </summary>
 public class Student : BaseEntity
 {
     /// <summary>
@@ -11,4 +14,9 @@ public class Student : BaseEntity
     /// Фамилия
     /// </summary>
     public string LastName { get; set; } = string.Empty;
+
+    /// <summary>
+    /// Связь учеников и урока
+    /// </summary>
+    public IEnumerable<LessonStudent> StudentLessons { get; set; } = [];
 }
