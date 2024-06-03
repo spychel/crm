@@ -22,19 +22,19 @@ internal class LessonTypeConfiguration : IEntityTypeConfiguration<LessonType>
 
         builder.Property(e => e.Name)
             .IsRequired()
-            .HasConversion<LessonTypeNameConverter>()
+            .HasConversion(new LessonTypeNameConverter())
             .HasColumnName("name");
 
         #endregion
     }
 }
 
-internal class LessonTypeNameConverter : ValueConverter<string, LessonTypeName>
+internal class LessonTypeNameConverter : ValueConverter<LessonTypeName, string>
 {
     public LessonTypeNameConverter()
         : base(
-            e => LessonTypeNameHelper.ConvertFromDbString(e),
-            e => LessonTypeNameHelper.ConvertToDbString(e))
+            e => LessonTypeNameHelper.ConvertToDbString(e),
+            e => LessonTypeNameHelper.ConvertFromDbString(e))
     {
     }
 }

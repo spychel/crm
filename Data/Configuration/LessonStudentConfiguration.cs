@@ -8,7 +8,7 @@ internal class LessonStudentConfiguration : IEntityTypeConfiguration<LessonStude
 {
     public void Configure(EntityTypeBuilder<LessonStudent> builder)
     {
-        builder.ToTable("student");
+        builder.ToTable("lesson_student");
 
         #region Columns
 
