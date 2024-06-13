@@ -1,6 +1,7 @@
 using Data.Context;
 using Services;
 using Microsoft.EntityFrameworkCore;
+using Services.Mapping;
 
 var builder = WebApplication.CreateBuilder(args);
 

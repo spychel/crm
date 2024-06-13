@@ -1,7 +1,12 @@
-﻿namespace Services;
+﻿namespace Services.Shared.DTO.Student;
 
-public class CreateStudentDto
+public class StudentDto
 {
+    /// <summary>
+    /// Идентификатор
+    /// </summary>
+    public Guid Uid { get; set; }
+
     /// <summary>
     /// Имя
     /// </summary>

@@ -2,11 +2,12 @@
 using Data.Context;
 using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
+using Services.Shared.DTO.Student;
 
-namespace Services
+namespace Services.Services.StudentsService
 {
-    public class StudentService(
-        LessonsDbContext dbContext, 
+    public class StudentsService(
+        LessonsDbContext dbContext,
         IMapper mapper)
     {
         public async Task<IEnumerable<StudentDto>> GetStudentsDtoAsync(CancellationToken cancellationToken) =>

@@ -1,10 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Services;
+using Services.Services.StudentsService;
+using Services.Shared.DTO.Student;
 
 namespace API.Controllers;
 [Route("v1/students")]
 [ApiController]
-public class StudentsController(StudentService service) : ControllerBase
+public class StudentsController(StudentsService service) : ControllerBase
 {
     [HttpGet]
     public async Task<ActionResult<IEnumerable<StudentDto>>> GetStudentsAsync(
