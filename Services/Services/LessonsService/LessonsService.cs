@@ -13,6 +13,8 @@ public class LessonsService(
     public async Task<IEnumerable<LessonDto>> GetLessonsDtoAsync(CancellationToken cancellationToken) =>
         await dbContext
             .Set<Lesson>()
+            .Include(l => l.Type)
+            .Include(l => l.StateType)
             .Select(lesson => mapper.Map<LessonDto>(lesson))
             .ToListAsync(cancellationToken);
 
@@ -27,6 +29,8 @@ public class LessonsService(
     {
         return await dbContext
             .Set<Lesson>()
+            .Include(l => l.Type)
+            .Include(l => l.StateType)
             .FirstOrDefaultAsync(s => s.Uid == lessonUid, cancellationToken);
     }
 

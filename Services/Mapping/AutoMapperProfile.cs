@@ -17,6 +17,8 @@ public class AutoMapperProfile : Profile
         CreateMap<Lesson, LessonDto>();
         CreateMap<LessonDto, Lesson>();
         CreateMap<LessonType, LessonTypeDto>();
+        CreateMap<LessonTypeDto, LessonType>();
         CreateMap<LessonStateType, LessonStateTypeDto>();
+        CreateMap<LessonStateTypeDto, LessonStateType>();
     }
 }
