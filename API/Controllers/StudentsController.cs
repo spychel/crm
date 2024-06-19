@@ -14,7 +14,7 @@ public class StudentsController(StudentsService service) : ControllerBase
 
     [HttpGet("{studentUid}")]
     public async Task<ActionResult<StudentDto>> GetStudentAsync(
-        Guid studentUid,
+        int studentUid,
         CancellationToken cancellationToken)
     {
         var student = await service.GetStudentDtoAsync(studentUid, cancellationToken);
@@ -37,7 +37,7 @@ public class StudentsController(StudentsService service) : ControllerBase
 
     [HttpPut("{studentUid}")]
     public async Task<ActionResult<StudentDto>> UpdateStudentAsync(
-        Guid studentUid,
+        int studentUid,
         StudentDto updateDto,
         CancellationToken cancellationToken)
     {
@@ -53,7 +53,7 @@ public class StudentsController(StudentsService service) : ControllerBase
 
     [HttpDelete("{studentUid}")]
     public async Task<IActionResult> DeleteStudentAsync(
-        Guid studentUid,
+        int studentUid,
         CancellationToken cancellationToken)
     {
         var result = await service.DeleteStudentAsync(studentUid, cancellationToken);

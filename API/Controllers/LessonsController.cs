@@ -14,7 +14,7 @@ public class LessonsController(LessonsService service) : ControllerBase
 
     [HttpGet("{lessonUid}")]
     public async Task<ActionResult<LessonDto>> GetLessonAsync(
-        Guid lessonUid,
+        int lessonUid,
         CancellationToken cancellationToken)
     {
         var lesson = await service.GetLessonDtoAsync(lessonUid, cancellationToken);
@@ -37,7 +37,7 @@ public class LessonsController(LessonsService service) : ControllerBase
 
     [HttpPut("{lessonUid}")]
     public async Task<ActionResult<LessonDto>> UpdateLessonAsync(
-        Guid lessonUid,
+        int lessonUid,
         LessonDto updateDto,
         CancellationToken cancellationToken)
     {
@@ -53,7 +53,7 @@ public class LessonsController(LessonsService service) : ControllerBase
 
     [HttpDelete("{lessonUid}")]
     public async Task<IActionResult> DeleteLessonAsync(
-        Guid lessonUid,
+        int lessonUid,
         CancellationToken cancellationToken)
     {
         var result = await service.DeleteLessonAsync(lessonUid, cancellationToken);

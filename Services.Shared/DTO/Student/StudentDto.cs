@@ -5,7 +5,7 @@ public class StudentDto
     /// <summary>
     /// Идентификатор
     /// </summary>
-    public Guid Uid { get; set; }
+    public int Uid { get; set; }
 
     /// <summary>
     /// Имя

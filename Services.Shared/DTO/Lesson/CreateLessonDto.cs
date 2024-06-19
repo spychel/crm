@@ -20,10 +20,10 @@ public class CreateLessonDto
     /// <summary>
     /// Идент. состояния занятия
     /// </summary>
-    public required Guid LessonStateTypeUid { get; set; }
+    public required int LessonStateTypeUid { get; set; }
 
     /// <summary>
     /// Идент. типа занятия
     /// </summary>
-    public required Guid LessonTypeUid { get; set; }
+    public required int LessonTypeUid { get; set; }
 }

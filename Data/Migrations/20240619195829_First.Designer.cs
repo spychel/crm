@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.Migrations
 {
     [DbContext(typeof(LessonsDbContext))]
-    [Migration("20240603192152_First")]
+    [Migration("20240619195829_First")]
     partial class First
     {
         /// <inheritdoc />
@@ -22,21 +22,21 @@ namespace Data.Migrations
 
             modelBuilder.Entity("Domain.Entities.Lesson", b =>
                 {
-                    b.Property<Guid>("Uid")
+                    b.Property<int>("Uid")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT")
+                        .HasColumnType("INTEGER")
                         .HasColumnName("uid");
 
                     b.Property<ushort>("Duration")
                         .HasColumnType("INTEGER")
                         .HasColumnName("duration");
 
-                    b.Property<Guid>("LessonStateTypeUid")
-                        .HasColumnType("TEXT")
+                    b.Property<int>("LessonStateTypeUid")
+                        .HasColumnType("INTEGER")
                         .HasColumnName("lesson_state_type_uid");
 
-                    b.Property<Guid>("LessonTypeUid")
-                        .HasColumnType("TEXT")
+                    b.Property<int>("LessonTypeUid")
+                        .HasColumnType("INTEGER")
                         .HasColumnName("lesson_type_uid");
 
                     b.Property<ushort>("Price")
@@ -58,9 +58,9 @@ namespace Data.Migrations
 
             modelBuilder.Entity("Domain.Entities.LessonStateType", b =>
                 {
-                    b.Property<Guid>("Uid")
+                    b.Property<int>("Uid")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT")
+                        .HasColumnType("INTEGER")
                         .HasColumnName("uid");
 
                     b.Property<string>("Name")
@@ -76,12 +76,12 @@ namespace Data.Migrations
 
             modelBuilder.Entity("Domain.Entities.LessonStudent", b =>
                 {
-                    b.Property<Guid>("LessonUid")
-                        .HasColumnType("TEXT")
+                    b.Property<int>("LessonUid")
+                        .HasColumnType("INTEGER")
                         .HasColumnName("lesson_uid");
 
-                    b.Property<Guid>("StudentUid")
-                        .HasColumnType("TEXT")
+                    b.Property<int>("StudentUid")
+                        .HasColumnType("INTEGER")
                         .HasColumnName("student_uid");
 
                     b.HasKey("LessonUid", "StudentUid")
@@ -94,9 +94,9 @@ namespace Data.Migrations
 
             modelBuilder.Entity("Domain.Entities.LessonType", b =>
                 {
-                    b.Property<Guid>("Uid")
+                    b.Property<int>("Uid")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT")
+                        .HasColumnType("INTEGER")
                         .HasColumnName("uid");
 
                     b.Property<string>("Name")
@@ -112,9 +112,9 @@ namespace Data.Migrations
 
             modelBuilder.Entity("Domain.Entities.Student", b =>
                 {
-                    b.Property<Guid>("Uid")
+                    b.Property<int>("Uid")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT")
+                        .HasColumnType("INTEGER")
                         .HasColumnName("uid");
 
                     b.Property<string>("LastName")

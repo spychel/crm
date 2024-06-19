@@ -7,7 +7,7 @@ public class LessonDto
     /// <summary>
     /// Идентификатор
     /// </summary>
-    public required Guid Uid { get; set; }
+    public required int Uid { get; set; }
 
     /// <summary>
     /// Дата и время начала занятия

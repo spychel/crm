@@ -18,14 +18,14 @@ public class LessonsService(
             .Select(lesson => mapper.Map<LessonDto>(lesson))
             .ToListAsync(cancellationToken);
 
-    public async Task<LessonDto?> GetLessonDtoAsync(Guid lessonUid, CancellationToken cancellationToken)
+    public async Task<LessonDto?> GetLessonDtoAsync(int lessonUid, CancellationToken cancellationToken)
     {
         var lesson = await GetLessonByUidAsync(lessonUid, cancellationToken);
 
         return lesson is null ? null : mapper.Map<LessonDto>(lesson);
     }
 
-    private async Task<Lesson?> GetLessonByUidAsync(Guid lessonUid, CancellationToken cancellationToken)
+    private async Task<Lesson?> GetLessonByUidAsync(int lessonUid, CancellationToken cancellationToken)
     {
         return await dbContext
             .Set<Lesson>()
@@ -51,7 +51,7 @@ public class LessonsService(
         return mapper.Map<LessonDto>(createdLesson);
     }
 
-    public async Task<LessonDto?> UpdateLessonAsync(Guid lessonUid, LessonDto dto, CancellationToken cancellationToken)
+    public async Task<LessonDto?> UpdateLessonAsync(int lessonUid, LessonDto dto, CancellationToken cancellationToken)
     {
         await using var transaction = await dbContext.Database.BeginTransactionAsync(cancellationToken);
 
@@ -70,7 +70,7 @@ public class LessonsService(
     }
 
     public async Task<bool> DeleteLessonAsync(
-        Guid lessonUid,
+        int lessonUid,
         CancellationToken cancellationToken)
     {
         await using var transaction = await dbContext.Database.BeginTransactionAsync(cancellationToken);

@@ -2,6 +2,7 @@ using Data.Context;
 using Services;
 using Microsoft.EntityFrameworkCore;
 using Services.Mapping;
+using System.Reflection.PortableExecutable;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,8 +26,12 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
+
+app.UseCors(builder =>
+    builder.WithOrigins("https://localhost:3000", "http://localhost:3000")
+           .AllowAnyHeader()
+           .AllowAnyMethod());
 
 app.MapControllers();
 

@@ -16,14 +16,14 @@ namespace Services.Services.StudentsService
                 .Select(student => mapper.Map<StudentDto>(student))
                 .ToListAsync(cancellationToken);
 
-        public async Task<StudentDto?> GetStudentDtoAsync(Guid studentUid, CancellationToken cancellationToken)
+        public async Task<StudentDto?> GetStudentDtoAsync(int studentUid, CancellationToken cancellationToken)
         {
             var student = await GetStudentByUidAsync(studentUid, cancellationToken);
 
             return student is null ? null : mapper.Map<StudentDto>(student);
         }
 
-        private async Task<Student?> GetStudentByUidAsync(Guid studentUid, CancellationToken cancellationToken)
+        private async Task<Student?> GetStudentByUidAsync(int studentUid, CancellationToken cancellationToken)
         {
             return await dbContext
                 .Set<Student>()
@@ -47,7 +47,7 @@ namespace Services.Services.StudentsService
             return mapper.Map<StudentDto>(createdStudent);
         }
 
-        public async Task<StudentDto?> UpdateStudentAsync(Guid studentUid, StudentDto dto, CancellationToken cancellationToken)
+        public async Task<StudentDto?> UpdateStudentAsync(int studentUid, StudentDto dto, CancellationToken cancellationToken)
         {
             await using var transaction = await dbContext.Database.BeginTransactionAsync(cancellationToken);
 
@@ -66,7 +66,7 @@ namespace Services.Services.StudentsService
         }
 
         public async Task<bool> DeleteStudentAsync(
-            Guid studentUid,
+            int studentUid,
             CancellationToken cancellationToken)
         {
             await using var transaction = await dbContext.Database.BeginTransactionAsync(cancellationToken);

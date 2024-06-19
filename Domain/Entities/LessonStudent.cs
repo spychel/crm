@@ -7,12 +7,12 @@ public class LessonStudent
     /// <summary>
     /// Идент. занятия
     /// </summary>
-    public Guid LessonUid { get; init; }
+    public int LessonUid { get; init; }
 
     /// <summary>
     /// Идент. ученика
     /// </summary>
-    public Guid StudentUid { get; init; }
+    public int StudentUid { get; init; }
 
     #endregion
 
